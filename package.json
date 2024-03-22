@@ -1,0 +1,7 @@
+{
+  "name": "REST_api_books",
+  "version": "1.0.0",
+  "dependencies": {
+    "k6": "^0.0.0"
+  }
+}
