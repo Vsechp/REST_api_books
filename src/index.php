@@ -1,13 +1,13 @@
 <?php
-require 'vendor/autoload.php';
+require '../vendor/autoload.php';
 use Firebase\JWT\JWT;
 
-$dotenv = Dotenv\Dotenv::createImmutable(__DIR__);
+$dotenv = Dotenv\Dotenv::createImmutable('/var/www/');
 $dotenv->load();
 
 
 $dbPort = $_ENV['DB_PORT'];
-$db = new PDO("pgsql:host={$_ENV['DB_HOST']};port={$dbPort};dbname={$_ENV['DB_NAME']}", $_ENV['DB_USER'], $_ENV['DB_PASS']);
+$db = new PDO("pgsql:host=db;port={$dbPort};dbname={$_ENV['DB_NAME']}", $_ENV['DB_USER'], $_ENV['DB_PASS']);;
 $db->setAttribute(PDO::ATTR_DEFAULT_FETCH_MODE, PDO::FETCH_ASSOC);
 $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
